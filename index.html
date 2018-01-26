@@ -26,6 +26,7 @@
           <input type="submit" name="submit" value="Sign in">
         </form>
       </div>
+
       <div id="user-view">
         <form id="change-password">
             <fieldset class="form-group">
@@ -34,21 +35,24 @@
             </fieldset>
             <input type="submit" name="submit" value="update" class="btn btn-info">
         </form>
+
         <form id="sign-out">
             <input type="submit" name="submit" value="sign out" class="btn btn-default">
         </form>
+
         <form id="new-location-form">
           <label for="new-location-form">New place</label>
           <input type="text" name="place[name]" placeholder="name">
           <input type="password" name="place[address]" placeholder="address">
+          <textarea name="place[description]" cols="40" rows="10"></textarea>
           <input type="submit" name="submit" value="Submit">
         </form>
 
         <div id="content">
           <h2>Places</h2>
+          
         </div>
+
       </div>
-      <button class="api-test">test api connection</button>
-      
     </body>
 </html>

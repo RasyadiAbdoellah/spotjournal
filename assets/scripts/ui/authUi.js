@@ -1,5 +1,6 @@
 'use strict'
 const store = require('../store')
+const showPlacesTemplate = require('./place-lists.handlebars')
 
 // -------------------UI FUNCTIONS BELOW -------------------------
 // Functions below are mostly for UI, with only onSignInSuccess having an api call to get stats.
@@ -20,6 +21,10 @@ const onSignInSuccess = function (data) {
   $('#sign-in input[name="credentials[email]"]').val('')
   $('#sign-in input[name="credentials[password]"]').val('')
   console.log('sign in success!')
+
+  const showPlaces = showPlacesTemplate()
+
+  $('#content').append(showPlaces)
 }
 
 const onChangePassSuccess = function () {
