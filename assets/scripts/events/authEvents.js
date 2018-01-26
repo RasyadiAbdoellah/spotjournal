@@ -27,6 +27,7 @@ const onChangePass = function (event) {
   event.preventDefault()
   // console.log('change pw triggered')
   const data = getFormFields(event.target)
+  console.log(data)
   api.changePass(data)
     .then(ui.onChangePassSuccess)
     .catch(ui.onChangePassFailure)
