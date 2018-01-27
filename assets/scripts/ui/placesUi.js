@@ -1,30 +1,19 @@
 'use strict'
 const store = require('../store')
 const showPlacesTemplate = require('./place-lists.handlebars')
-const placesApi = require('../api/placesApi')
-const placesUi = require('./placesUi')
 
-// -------------------UI FUNCTIONS BELOW -------------------------
-// Functions below are mostly for UI, with only onSignInSuccess having an api call to get stats.
+const getPlacesSuccess = function (data) {
+  debugger
+  const showPlaces = showPlacesTemplate({ places: data[Object.keys(data)[0]] })
 
-const onSignUpSuccess = function (data) {
-  console.log(data)
-  // clear email, pw, pw_confirm input
-  $('#sign-up input[name="credentials[email]"]').val('')
-  $('#sign-up input[name="credentials[password]"]').val('')
-  $('#sign-up input[name="credentials[password_confirmation]"]').val('')
-  console.log('sign up success!')
+  $('#content').append(showPlaces)
 }
 
-const onSignInSuccess = function (data) {
+const createPlaceSuccess = function (data) {
   console.log(data)
-  store.user = data.user
-  // clear email, pw input
-  $('#sign-in input[name="credentials[email]"]').val('')
-  $('#sign-in input[name="credentials[password]"]').val('')
-  console.log('sign in success!')
-  placesApi.getPlaces()
-    .then(placesUi.getPlacesSuccess)
+  console.log('create place success!')
+  debugger
+  getPlacesSuccess(data)
 }
 
 const onChangePassSuccess = function () {
@@ -73,8 +62,8 @@ const onSignOutFailure = function (error) {
   }
 }
 module.exports = {
-  onSignUpSuccess,
-  onSignInSuccess,
+  createPlaceSuccess,
+  getPlacesSuccess,
   onChangePassSuccess,
   onSignOutSuccess,
   onSignUpFailure,

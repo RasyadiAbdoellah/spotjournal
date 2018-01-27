@@ -1,0 +1,18 @@
+{{#each places  as |place|}}
+
+<ul data-id="{{place.id}}" class="list-group"> 
+    
+    <li class="list-group-item">{{place.name}}</li>
+    <li class="list-group-item">{{place.address}}</li>
+    <li class="list-group-item">
+    {{#if place.description}}
+      {{place.description}}
+    {{else}}
+      No decription available.
+    {{/if}}
+    </li>
+
+  <li class="list-group-item"><button class="remove-btn btn btn-danger">Remove field</button></li>
+  </ul>
+
+  {{/each}}
