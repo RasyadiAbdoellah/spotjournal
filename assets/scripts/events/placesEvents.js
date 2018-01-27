@@ -15,6 +15,18 @@ const onCreatePlace = function (event) {
     .catch(ui.createPlaceFailure)
 }
 
+const onUpdatePlace = function (event) {
+  event.preventDefault()
+  console.log('update place triggered')
+  const id = $(event.target).parents('ul').attr('data-id')
+  const data = getFormFields(event.target)
+  api.updatePlace(data, id)
+    .then(ui.createPlaceSuccess)
+    .then(api.getPlaces)
+    .then(ui.getPlacesSuccess)
+    .catch(ui.createPlaceFailure)
+}
+
 const onGetPlaces = function (event) {
   event.preventDefault()
   // console.log('get places triggered')
@@ -26,7 +38,7 @@ const onGetPlaces = function (event) {
 const addHandler = function (event) {
   $('#new-place').on('submit', onCreatePlace)
   $('#get-places').on('click', onGetPlaces)
-  // $('#change-password').on('submit', onChangePass)
+  $('body').on('submit', '.update-place', onUpdatePlace)
   // $('#sign-out').on('submit', onSignOut)
 }
 

@@ -11,8 +11,16 @@
       No decription available.
     {{/if}}
     </li>
-
-  <li class="list-group-item"><button class="remove-btn btn btn-danger">Remove field</button></li>
+    <li class="list-group-item">
+      <form class="update-place">
+        <label>Update</label>
+          <input type="text" name="place[name]" value="{{place.name}}">
+          <input type="text" name="place[address]" value="{{place.address}}">
+          <textarea name="place[description]" cols="40" rows="10">{{place.description}}</textarea>
+          <input type="submit" name="submit" value="Submit">
+      </form>
+    </li>
+    <li class="list-group-item"><button class="remove-btn btn btn-danger">Remove field</button></li>
   </ul>
 
   {{/each}}

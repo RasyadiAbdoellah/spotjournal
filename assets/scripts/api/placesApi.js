@@ -19,9 +19,10 @@ const getPlaces = function () {
   })
 }
 
-const changePlace = function (data) {
+const updatePlace = function (data, id) {
+  console.log(data, id)
   return $.ajax({
-    url: config.apiOrigin + '/places/' + place.id,
+    url: config.apiOrigin + '/places/' + id,
     method: 'PATCH',
     headers: { Authorization: 'Token token=' + store.user.token },
     data
@@ -30,5 +31,6 @@ const changePlace = function (data) {
 
 module.exports = {
   createPlace,
-  getPlaces
+  getPlaces,
+  updatePlace
 }
