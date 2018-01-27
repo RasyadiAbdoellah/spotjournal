@@ -10,6 +10,8 @@ const onCreatePlace = function (event) {
   const data = getFormFields(event.target)
   api.createPlace(data)
     .then(ui.createPlaceSuccess)
+    .then(api.getPlaces)
+    .then(ui.getPlacesSuccess)
     .catch(ui.createPlaceFailure)
 }
 
@@ -23,7 +25,7 @@ const onGetPlaces = function (event) {
 
 const addHandler = function (event) {
   $('#new-place').on('submit', onCreatePlace)
-  // $('#sign-in').on('submit', onSignIn)
+  $('#get-places').on('click', onGetPlaces)
   // $('#change-password').on('submit', onChangePass)
   // $('#sign-out').on('submit', onSignOut)
 }

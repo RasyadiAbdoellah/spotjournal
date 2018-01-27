@@ -3,17 +3,17 @@ const store = require('../store')
 const showPlacesTemplate = require('./place-lists.handlebars')
 
 const getPlacesSuccess = function (data) {
-  debugger
   const showPlaces = showPlacesTemplate({ places: data[Object.keys(data)[0]] })
 
-  $('#content').append(showPlaces)
+  $('#content').html(showPlaces)
 }
 
 const createPlaceSuccess = function (data) {
   console.log(data)
   console.log('create place success!')
-  debugger
-  getPlacesSuccess(data)
+  $('#new-place input[name="place[name]"]').val('')
+  $('#new-place input[name="place[address]"]').val('')
+  $('#new-place input[name="place[description]"]').val('')
 }
 
 const onChangePassSuccess = function () {
