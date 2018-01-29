@@ -13,6 +13,10 @@ const getPlacesSuccess = function (data) {
   $('#content').html(showPlaces)
 }
 
+const showUpdate = function (id) {
+  $('#update-' + id).toggle()
+}
+
 const createPlaceSuccess = function (data) {
   console.log(data)
   console.log('create place success!')
@@ -23,5 +27,6 @@ const createPlaceSuccess = function (data) {
 
 module.exports = {
   createPlaceSuccess,
-  getPlacesSuccess
+  getPlacesSuccess,
+  showUpdate
 }

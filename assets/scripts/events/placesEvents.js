@@ -34,12 +34,20 @@ const onGetPlaces = function (event) {
     .catch(ui.getPlacesFailure)
 }
 
+const onShowUpdate = function (event) {
+  event.preventDefault()
+  const id = $(event.target).parents('.entry').attr('data-id')
+  console.log('show update form clicked', id)
+  ui.showUpdate(id)
+}
+
 const onDeletePlace = function () {
 }
 
 const addHandler = function (event) {
   $('#new-place').on('submit', onCreatePlace)
   $('#get-places').on('click', onGetPlaces)
+  $('body').on('click', '.modify', onShowUpdate)
   $('body').on('submit', '.update-place', onUpdatePlace)
   // $('#sign-out').on('submit', onSignOut)
 }
