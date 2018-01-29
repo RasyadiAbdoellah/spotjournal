@@ -1,6 +1,8 @@
-  <form id="update-{{place.id}}" class="update-place form-group" style="display:none">
-  <input class="form-control" type="text" name="place[name]" value="{{place.name}}">
-  <input class="form-control" type="text" name="place[address]" value="{{place.address}}">
-  <textarea name="place[description]" class="form-control" rows="10">{{place.description}}</textarea>
-  <input type="submit" name="submit" value="Submit">
-  </form>
+  <id id="update-{{place.id}}-container" class="collapse">
+    <form id="update-{{place.id}}" class="update-place form-group">
+    <input class="form-control" type="text" name="place[name]" value="{{place.name}}">
+    <input class="form-control" type="text" name="place[address]" value="{{place.address}}">
+    <textarea name="place[description]" class="form-control" rows="10">{{place.description}}</textarea>
+    <input type="submit" name="submit" value="Submit">
+    </form>
+  </id>

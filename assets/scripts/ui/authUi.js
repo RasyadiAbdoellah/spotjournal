@@ -5,7 +5,6 @@ const placesApi = require('../api/placesApi')
 const placesUi = require('./placesUi')
 
 // -------------------UI FUNCTIONS BELOW -------------------------
-// Functions below are mostly for UI, with only onSignInSuccess having an api call to get stats.
 
 const onSignUpSuccess = function (data) {
   console.log(data)
@@ -13,7 +12,7 @@ const onSignUpSuccess = function (data) {
   $('#sign-up input[name="credentials[email]"]').val('')
   $('#sign-up input[name="credentials[password]"]').val('')
   $('#sign-up input[name="credentials[password_confirmation]"]').val('')
-  console.log('sign up success!')
+  // console.log('sign up success!')
 }
 
 const onSignInSuccess = function (data) {
@@ -22,7 +21,11 @@ const onSignInSuccess = function (data) {
   // clear email, pw input
   $('#sign-in input[name="credentials[email]"]').val('')
   $('#sign-in input[name="credentials[password]"]').val('')
-  console.log('sign in success!')
+  // hide sign-in screen, show user screen
+  $('#landing').addClass('hidden')
+  $('#user-view').removeClass('hidden')
+
+  // console.log('sign in success!')
   placesApi.getPlaces()
     .then(placesUi.getPlacesSuccess)
 }
@@ -35,10 +38,10 @@ const onChangePassSuccess = function () {
 }
 
 const onSignOutSuccess = function () {
+  $('#landing').removeClass('hidden')
+  $('#user-view').addClass('hidden')
   store.user = null
-  store.game = null
-  store.games = null
-  console.log('logged out')
+  // console.log('logged out')
 }
 
 const onSignUpFailure = function (error) {
@@ -72,6 +75,7 @@ const onSignOutFailure = function (error) {
   } else if (statusCode.startsWith('5')) {
   }
 }
+
 module.exports = {
   onSignUpSuccess,
   onSignInSuccess,

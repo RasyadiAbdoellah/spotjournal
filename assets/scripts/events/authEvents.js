@@ -4,7 +4,11 @@ const getFormFields = require('../../../lib/get-form-fields')
 const api = require('../api/authApi')
 const ui = require('../ui/authUi')
 
-// ----------------------PURE EVENT FUNCTIONS BELOW---------------------
+const toggleSignInSignUp = function () {
+  $('#sign-in').toggleClass('hidden')
+  $('#sign-up').toggleClass('hidden')
+}
+
 const onSignUp = function (event) {
   event.preventDefault()
   // console.log('sign up triggered')
@@ -46,6 +50,7 @@ const addHandler = function (event) {
   $('#sign-in').on('submit', onSignIn)
   $('#change-password').on('submit', onChangePass)
   $('#sign-out').on('submit', onSignOut)
+  $('.sign-in-up-toggle').on('click', toggleSignInSignUp)
 }
 
 module.exports = {

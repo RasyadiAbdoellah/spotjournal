@@ -16,24 +16,30 @@
 
     <!-- Landing page section -->
     <!-- Initial section that's shown when page is loaded -->
-      <section id="landing">
-        <h1>LANDING PAGE</h1>
-        <form id="sign-up">
+      <section id="landing" class="center-block">
+        <h1>Welcome to SpotScout!</h1>
+        <p>
+          This is a place for you to save your favorite spots, where ever they may be.
+        </p>
+        
+        <form id="sign-up" class="hidden">
           <input type="text" name="credentials[email]" placeholder="email/username">
           <input type="password" name="credentials[password]" placeholder="password">
           <input type="password" name="credentials[password_confirmation]" placeholder="confirm password">
           <input type="submit" name="submit" value="Register">
+          <p class="sign-in-up-toggle">Already have an account? <a href='#'>Sign in here.</a></p>
         </form>
         <form id="sign-in">
           <input type="text" name="credentials[email]" placeholder="email/username">
           <input type="password" name="credentials[password]" placeholder="password">
           <input type="submit" name="submit" value="Sign in">
+          <p class="sign-in-up-toggle">Don't have an account? <a href='#'>Sign up here.</a></p>
         </form>
       </section>
 
       <!-- Signed in User section -->
       <!-- Section below is shown once a user has signed in -->
-      <section id="user-view">
+      <section id="user-view" class="hidden">
         <form id="change-password">
             <input type="password" name="passwords[old]" placeholder="old password">
             <input type="password" name="passwords[new]" placeholder="new password">
