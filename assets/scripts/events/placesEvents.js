@@ -11,19 +11,23 @@ const onCreatePlace = function (event) {
   api.createPlace(data)
     .then(api.getPlaces)
     .then(ui.getPlacesSuccess)
-    .catch(ui.createPlaceFailure)
+    .catch(ui.createPlaceFail)
+}
+
+const getDataEntryId = (target) => {
+  return $(target).parents('.entry').attr('data-id')
 }
 
 const onUpdatePlace = function (event) {
   event.preventDefault()
   console.log('update place triggered')
-  const id = $(event.target).parents('.entry').attr('data-id')
+  const id = getDataEntryId(event.target)
   const data = getFormFields(event.target)
   api.updatePlace(data, id)
     .then(ui.createPlaceSuccess)
     .then(api.getPlaces)
     .then(ui.getPlacesSuccess)
-    .catch(ui.createPlaceFailure)
+    .catch(ui.createPlaceFail)
 }
 
 const onGetPlaces = function (event) {
@@ -31,17 +35,25 @@ const onGetPlaces = function (event) {
   // console.log('get places triggered')
   api.getPlaces()
     .then(ui.getPlacesSuccess)
-    .catch(ui.getPlacesFailure)
+    .catch(ui.getPlacesFail)
 }
 
 const onShowUpdate = function (event) {
   event.preventDefault()
-  const id = $(event.target).parents('.entry').attr('data-id')
+  const id = getDataEntryId(event.target)
   console.log('show update form clicked', id)
   ui.showUpdate(id)
 }
 
-const onDeletePlace = function () {
+const onDeletePlace = function (event) {
+  event.preventDefault()
+  const id = getDataEntryId(event.target)
+  console.log('delete clicked at ', id)
+  api.deletePlace(id)
+    .then(ui.deletePlaceSuccess)
+    .then(api.getPlaces)
+    .then(ui.getPlacesSuccess)
+    .catch(ui.deletPlaceFail)
 }
 
 const addHandler = function (event) {
@@ -49,7 +61,7 @@ const addHandler = function (event) {
   $('#get-places').on('click', onGetPlaces)
   $('body').on('click', '.modify', onShowUpdate)
   $('body').on('submit', '.update-place', onUpdatePlace)
-  // $('#sign-out').on('submit', onSignOut)
+  $('body').on('click', '.delete', onDeletePlace)
 }
 
 module.exports = {

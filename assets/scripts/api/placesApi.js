@@ -29,8 +29,18 @@ const updatePlace = function (data, id) {
   })
 }
 
+const deletePlace = function (id) {
+  console.log('deleting entry ', id)
+  return $.ajax({
+    url: config.apiOrigin + '/places/' + id,
+    method: 'DELETE',
+    headers: { Authorization: 'Token token=' + store.user.token }
+  })
+}
+
 module.exports = {
   createPlace,
   getPlaces,
-  updatePlace
+  updatePlace,
+  deletePlace
 }
