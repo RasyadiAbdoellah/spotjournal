@@ -9,7 +9,6 @@ const onCreatePlace = function (event) {
   console.log('create place triggered')
   const data = getFormFields(event.target)
   api.createPlace(data)
-    .then(ui.createPlaceSuccess)
     .then(api.getPlaces)
     .then(ui.getPlacesSuccess)
     .catch(ui.createPlaceFailure)
@@ -18,7 +17,7 @@ const onCreatePlace = function (event) {
 const onUpdatePlace = function (event) {
   event.preventDefault()
   console.log('update place triggered')
-  const id = $(event.target).parents('ul').attr('data-id')
+  const id = $(event.target).parents('.entry').attr('data-id')
   const data = getFormFields(event.target)
   api.updatePlace(data, id)
     .then(ui.createPlaceSuccess)

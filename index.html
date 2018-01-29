@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>Example</title>
+      <title>SpotScout</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
       <!-- Do not add `link` tags-->
@@ -11,8 +11,12 @@
       <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
+
     <body class="container-fluid">
-      <div id="landing">
+
+    <!-- Landing page section -->
+    <!-- Initial section that's shown when page is loaded -->
+      <section id="landing">
         <h1>LANDING PAGE</h1>
         <form id="sign-up">
           <input type="text" name="credentials[email]" placeholder="email/username">
@@ -25,9 +29,11 @@
           <input type="password" name="credentials[password]" placeholder="password">
           <input type="submit" name="submit" value="Sign in">
         </form>
-      </div>
+      </section>
 
-      <div id="user-view">
+      <!-- Signed in User section -->
+      <!-- Section below is shown once a user has signed in -->
+      <section id="user-view">
         <form id="change-password">
             <input type="password" name="passwords[old]" placeholder="old password">
             <input type="password" name="passwords[new]" placeholder="new password">
@@ -47,9 +53,9 @@
         </form>
         <h2>Places</h2>
         <button id="get-places">Get places</button>
-        <div id="content">
+        <div id="content" class="container">
         </div>
 
-      </div>
+      </section>
     </body>
 </html>
