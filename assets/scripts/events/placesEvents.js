@@ -34,6 +34,9 @@ const onGetPlaces = function (event) {
     .catch(ui.getPlacesFailure)
 }
 
+const onDeletePlace = function () {
+}
+
 const addHandler = function (event) {
   $('#new-place').on('submit', onCreatePlace)
   $('#get-places').on('click', onGetPlaces)
