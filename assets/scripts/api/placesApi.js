@@ -3,6 +3,7 @@ const config = require('../config')
 const store = require('../store')
 
 const createPlace = function (data) {
+  console.log(data)
   return $.ajax({
     url: config.apiOrigin + '/places',
     method: 'POST',
