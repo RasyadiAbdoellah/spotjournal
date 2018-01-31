@@ -20,9 +20,9 @@ const toggleUpdate = function (id) {
 const createPlaceSuccess = function (data) {
   console.log(data)
   console.log('create place success!')
-  $('#new-place input[name="place[name]"]').val('')
-  $('#new-place input[name="place[address]"]').val('')
-  $('#new-place input[name="place[description]"]').val('')
+  $('#new-name').val('')
+  $('#new-address').val('')
+  $('#new-descrip').val('')
 }
 
 module.exports = {

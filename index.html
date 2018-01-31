@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>SpotScout</title>
+      <title>SpotJournal</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
       <!-- Do not add `link` tags-->
@@ -17,7 +17,7 @@
     <!-- Landing page section -->
     <!-- Initial section that's shown when page is loaded -->
       <section id="landing" class="center-block">
-        <h1>Welcome to SpotScout!</h1>
+        <h1>Welcome to SpotJournal!</h1>
         <p>
           This is a place for you to save your favorite spots, where ever they may be.
         </p>
@@ -37,9 +37,11 @@
         </form>
       </section>
 
+      
+
       <!-- Signed in User section -->
       <!-- Section below is shown once a user has signed in -->
-      <section id="user-view" class="hidden">
+      <section id="user-view" class="hidden container">
         <form id="change-password">
             <input type="password" name="passwords[old]" placeholder="old password">
             <input type="password" name="passwords[new]" placeholder="new password">
@@ -51,9 +53,9 @@
         </form>
 
         
-        <div class="row">
-          <h2 class="col-xs-2">Places <button type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target="#new-place"> + </button></h2>
-        </div>
+        <!-- <div class="row"> -->
+          <h2>Places <button type="button" class="btn btn-default" data-toggle="modal" data-target="#new-place-modal"> + </button></h2>
+        <!-- </div> -->
         <!-- <button id="get-places">Get places</button> -->
         <div id="content" class="container panel-group">
         </div>
@@ -62,7 +64,7 @@
 
       
       <!-- Modal -->
-      <div class="modal fade" id="new-place" tabindex="-1" role="dialog" aria-labelledby="new-place-label">
+      <div class="modal fade" id="new-place-modal" tabindex="-1" role="dialog" aria-labelledby="new-place-label">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
@@ -91,7 +93,7 @@
                 </div>
                 <div class="form-group">
                   <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                  <button type="submit" class="btn btn-primary" data-dismiss="modal">Save</button>
+                  <button id="submit-place" type="submit" class="btn btn-primary">Save</button>
                 </div>
               </form>
             </div>

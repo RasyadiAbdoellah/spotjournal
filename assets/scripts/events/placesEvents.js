@@ -9,8 +9,10 @@ const onCreatePlace = function (event) {
   console.log('create place triggered')
   const data = getFormFields(event.target)
   api.createPlace(data)
+    .then(ui.createPlaceSuccess)
     .then(api.getPlaces)
     .then(ui.getPlacesSuccess)
+    .then($('#new-place-modal').modal('hide'))
     .catch(ui.createPlaceFail)
 }
 
