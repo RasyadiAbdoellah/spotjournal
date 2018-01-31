@@ -27,10 +27,10 @@ const onUpdatePlace = function (event) {
   const data = getFormFields(event.target)
   api.updatePlace(data, id)
     // .then(ui.toggleUpdate)
-    .then(ui.createPlaceSuccess)
+    .then(ui.updatePlaceSuccess)
     .then(api.getPlaces)
     .then(ui.getPlacesSuccess)
-    .catch(ui.createPlaceFail)
+    .catch(ui.updatePlaceFail)
 }
 
 const onGetPlaces = function (event) {
@@ -56,7 +56,7 @@ const onDeletePlace = function (event) {
     .then(ui.deletePlaceSuccess)
     .then(api.getPlaces)
     .then(ui.getPlacesSuccess)
-    .catch(ui.deletPlaceFail)
+    .catch(ui.deletePlaceFail)
 }
 
 const addHandler = function (event) {

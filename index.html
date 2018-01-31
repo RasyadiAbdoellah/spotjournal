@@ -22,19 +22,31 @@
           This is a place for you to save your favorite spots, where ever they may be.
         </p>
         
+        <!-- SIGN UP FORM -->
         <form id="sign-up" class="hidden">
           <input type="text" name="credentials[email]" placeholder="email/username">
           <input type="password" name="credentials[password]" placeholder="password">
           <input type="password" name="credentials[password_confirmation]" placeholder="confirm password">
           <input type="submit" name="submit" value="Register">
-          <p class="sign-in-up-toggle">Already have an account? <a href='#'>Sign in here.</a></p>
+
+          <!-- TOGGLER -->
+          <p>Already have an account? <a class="sign-in-up-toggle" href='#'>Sign in here.</a></p>
         </form>
+
+        <!-- SIGN IN FORM -->
         <form id="sign-in">
           <input type="text" name="credentials[email]" placeholder="email/username">
           <input type="password" name="credentials[password]" placeholder="password">
           <input type="submit" name="submit" value="Sign in">
-          <p class="sign-in-up-toggle">Don't have an account? <a href='#'>Sign up here.</a></p>
+
+          <!-- TOGGLER -->
+          <p>Don't have an account? <a class="sign-in-up-toggle" href='#'>Sign up here.</a></p>
         </form>
+
+        <!-- MESSAGE BOX- INITIALLY SET TO HIDDEN -->
+        <div id="landing-message-box" class="alert" style="display: none">
+
+        </div>
       </section>
 
       
@@ -42,24 +54,55 @@
       <!-- Signed in User section -->
       <!-- Section below is shown once a user has signed in -->
       <section id="user-view" class="hidden container">
-        <form id="change-password">
-            <input type="password" name="passwords[old]" placeholder="old password">
-            <input type="password" name="passwords[new]" placeholder="new password">
-            <input type="submit" name="submit" value="update">
-        </form>
 
-        <form id="sign-out">
-            <input type="submit" name="submit" value="sign out" class="btn btn-default">
-        </form>
+        <!-- PASSWORD CHANGE AND SIGN OUT COLUMN -->
+        <div class="col-md-3 m-top">
 
-        
-        <!-- <div class="row"> -->
-          <h2>Places <button type="button" class="btn btn-default" data-toggle="modal" data-target="#new-place-modal"> + </button></h2>
-        <!-- </div> -->
-        <!-- <button id="get-places">Get places</button> -->
-        <div id="content" class="container panel-group">
+          <!-- PASSWORD COLLAPSE BUTTON -->
+            <a class="btn btn-default btn-block" data-toggle="collapse" href="#change-pass-collapse">Change password</a>
+
+            <!-- PASSWORD COLLAPSE PANEL -->
+              <div id="change-pass-panel" class="panel panel-default">
+                <div id="change-pass-collapse" class="panel-collapse collapse">
+                  <div class="panel-body">
+                    <form id="change-password">
+                      <fieldset class="form-group">
+                        <input type="password" name="passwords[old]" placeholder="old password" class="form-control">
+                        <input type="password" name="passwords[new]" placeholder="new password" class="form-control">
+                      </fieldset>
+                      <input type="submit" name="submit" value="update" class="btn btn-info btn-block">
+                    </form>
+                  </div>
+                </div>
+              </div>
+
+              <!-- SIGN OUT BUTTON -->
+              <form id="sign-out">
+                <input type="submit" name="submit" value="sign out" class="btn btn-default btn-block">
+              </form>
         </div>
+        
+        <!-- MAIN LIST AREA -->
+        <div class="col-sm-9">
+          
+          <!-- WRAPPER FOR MESSAGES AND PLACES HEADING -->
+          <div class="row pad-top">
 
+            <!-- USER MESSAGES -->
+            <div class="col-md-8 col-md-push-4">
+              <div id="user-message-box" style="display: none"></div>
+            </div>
+
+            <!-- PLACES HEADING AND ADD PLACE MODAL TRIGGER -->
+            <h2 class="col-md-4 col-md-pull-8 ">Places <button type="button" class="btn btn-default" data-toggle="modal" data-target="#new-place-modal"> + </button></h2>
+          </div>
+          <!-- <button id="get-places">Get places</button> -->
+          
+          <!-- LIST HANDLEBARS TARGET -->
+          <div id="content" class="row panel-group">
+          </div>
+
+        </div>
       </section>
 
       

@@ -2,8 +2,14 @@
 const store = require('../store')
 const showPlacesTemplate = require('./place-lists.handlebars')
 
-const sortPlaces = function (a, b) {
+const sortPlaces = (a, b) => {
   return a.id - b.id
+}
+
+const modifyMessageBox = (divId, text, htmlClass) => {
+  $(divId).text(text)
+  $(divId).removeClass().addClass(htmlClass)
+    .slideDown(200).delay(3500).slideUp(200)
 }
 
 const getPlacesSuccess = function (data) {
@@ -18,15 +24,23 @@ const toggleUpdate = function (id) {
 }
 
 const createPlaceSuccess = function (data) {
-  console.log(data)
-  console.log('create place success!')
   $('#new-name').val('')
   $('#new-address').val('')
   $('#new-descrip').val('')
 }
 
+const updatePlaceSuccess = function () {
+  modifyMessageBox('#user-message-box', 'Place modified!', 'alert alert-success')
+}
+
+const deletePlaceSuccess = function () {
+  modifyMessageBox('#user-message-box', 'Place deleted!', 'alert alert-success')
+}
+
 module.exports = {
   createPlaceSuccess,
   getPlacesSuccess,
-  toggleUpdate
+  toggleUpdate,
+  updatePlaceSuccess,
+  deletePlaceSuccess
 }
