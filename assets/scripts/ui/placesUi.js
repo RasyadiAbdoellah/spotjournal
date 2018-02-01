@@ -19,10 +19,6 @@ const getPlacesSuccess = function (data) {
   $('#content').html(showPlaces)
 }
 
-const toggleUpdate = function (id) {
-  $('#update-' + id + '-container').slideToggle()
-}
-
 const createPlaceSuccess = function (data) {
   $('#new-name').val('')
   $('#new-address').val('')
@@ -44,7 +40,6 @@ const createPlaceFail = function () {
 module.exports = {
   createPlaceSuccess,
   getPlacesSuccess,
-  toggleUpdate,
   updatePlaceSuccess,
   deletePlaceSuccess,
   createPlaceFail
