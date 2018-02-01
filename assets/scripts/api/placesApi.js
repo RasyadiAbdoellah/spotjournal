@@ -3,7 +3,7 @@ const config = require('../config')
 const store = require('../store')
 
 const createPlace = function (data) {
-  console.log(data)
+  // console.log(data)
   return $.ajax({
     url: config.apiOrigin + '/places',
     method: 'POST',
@@ -21,7 +21,7 @@ const getPlaces = function () {
 }
 
 const updatePlace = function (data, id) {
-  console.log(data, id)
+  // console.log(data, id)
   return $.ajax({
     url: config.apiOrigin + '/places/' + id,
     method: 'PATCH',
@@ -31,7 +31,7 @@ const updatePlace = function (data, id) {
 }
 
 const deletePlace = function (id) {
-  console.log('deleting entry ', id)
+  // console.log('deleting entry ', id)
   return $.ajax({
     url: config.apiOrigin + '/places/' + id,
     method: 'DELETE',
