@@ -13,7 +13,7 @@ const modifyMessageBox = (divId, text, htmlClass) => {
 }
 
 const onSignUpSuccess = function (data) {
-  console.log(data)
+  // console.log(data)
   // clear email, pw, pw_confirm input
   $('#sign-up input[name="credentials[email]"]').val('')
   $('#sign-up input[name="credentials[password]"]').val('')
@@ -24,7 +24,7 @@ const onSignUpSuccess = function (data) {
 }
 
 const onSignInSuccess = function (data) {
-  console.log(data)
+  // console.log(data)
   store.user = data.user
   // clear email, pw input
   $('#sign-in input[name="credentials[email]"]').val('')
@@ -40,7 +40,7 @@ const onSignInSuccess = function (data) {
 }
 
 const onChangePassSuccess = function () {
-  console.log('pw changed')
+  // console.log('pw changed')
   // clear input
   $('#change-password input[name="passwords[old]"]').val('')
   $('#change-password input[name="passwords[new]"]').val('')
