@@ -1,6 +1,7 @@
 # SpotJournal Frontend
 
 Backend repo: https://github.com/RasyadiAbdoellah/spotscout-api
+
 API link: https://spotscout.herokuapp.com
 
 Deployed link: https://rasyadiabdoellah.github.io/spotjournal
