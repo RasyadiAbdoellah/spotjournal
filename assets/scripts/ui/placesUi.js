@@ -2,7 +2,7 @@
 const store = require('../store')
 const showPlacesTemplate = require('./place-lists.handlebars')
 
-const sortPlaces = (a, b) => {
+const sortPlacesAscending = (a, b) => {
   return a.id - b.id
 }
 
@@ -13,7 +13,7 @@ const modifyMessageBox = (divId, text, htmlClass) => {
 }
 
 const getPlacesSuccess = function (data) {
-  const placeArray = data.places.sort(sortPlaces)
+  const placeArray = data.places.sort(sortPlacesAscending)
   const showPlaces = showPlacesTemplate({ places: placeArray })
 
   $('#content').html(showPlaces)
@@ -37,10 +37,15 @@ const deletePlaceSuccess = function () {
   modifyMessageBox('#user-message-box', 'Place deleted!', 'alert alert-success')
 }
 
+const createPlaceFail = function () {
+  modifyMessageBox('#user-message-box', 'Error creating new place! Try again later.', 'alert alert-danger')
+}
+
 module.exports = {
   createPlaceSuccess,
   getPlacesSuccess,
   toggleUpdate,
   updatePlaceSuccess,
-  deletePlaceSuccess
+  deletePlaceSuccess,
+  createPlaceFail
 }

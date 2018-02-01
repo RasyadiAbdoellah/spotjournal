@@ -6,7 +6,7 @@ const ui = require('../ui/placesUi')
 
 const onCreatePlace = function (event) {
   event.preventDefault()
-  console.log('create place triggered')
+  // console.log('create place triggered')
   const data = getFormFields(event.target)
   api.createPlace(data)
     .then(ui.createPlaceSuccess)
@@ -22,7 +22,7 @@ const getDataEntryId = (target) => {
 
 const onUpdatePlace = function (event) {
   event.preventDefault()
-  console.log('update place triggered')
+  // console.log('update place triggered')
   const id = getDataEntryId(event.target)
   const data = getFormFields(event.target)
   api.updatePlace(data, id)
