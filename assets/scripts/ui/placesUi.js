@@ -37,10 +37,25 @@ const createPlaceFail = function () {
   modifyMessageBox('#user-message-box', 'Error creating new place! Try again later.', 'alert alert-danger')
 }
 
+const updatePlaceFail = function () {
+  modifyMessageBox('#user-message-box', 'Error updating place! Try again later.', 'alert alert-danger')
+}
+
+const getPlacesFail = function () {
+  modifyMessageBox('#user-message-box', 'Error retrieving places! Try again later.', 'alert alert-danger')
+}
+
+const deletePlaceFail = function () {
+  modifyMessageBox('#user-message-box', 'Error deleting place! Try again later.', 'alert alert-danger')
+}
+
 module.exports = {
   createPlaceSuccess,
   getPlacesSuccess,
   updatePlaceSuccess,
   deletePlaceSuccess,
-  createPlaceFail
+  createPlaceFail,
+  updatePlaceFail,
+  getPlacesFail,
+  deletePlaceFail
 }

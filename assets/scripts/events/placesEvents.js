@@ -25,6 +25,10 @@ const onUpdatePlace = function (event) {
   // console.log('update place triggered')
   const id = getDataEntryId(event.target)
   const data = getFormFields(event.target)
+  // console.log(data)
+
+  // clean long whitespaces from description
+  data.place.description = data.place.description.replace(/\s{3,}/g, '\n')
   api.updatePlace(data, id)
     // .then(ui.toggleUpdate)
     .then(ui.updatePlaceSuccess)
