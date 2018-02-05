@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>SpotJournal</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Do not add `link` tags-->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+      <!-- Do not add `script` tags-->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+    </head>
+
+    <body class="container-fluid">
+
+    <!-- Landing page section -->
+    <!-- Initial section that's shown when page is loaded -->
+      <section id="landing" class="center-block">
+        <h1>Welcome to SpotJournal!</h1>
+        <p>
+          This is a place for you to save your favorite spots, where ever they may be.
+        </p>
+        
+        <!-- SIGN UP FORM -->
+        <form id="sign-up" class="hidden">
+          <input type="text" name="credentials[email]" placeholder="email/username">
+          <input type="password" name="credentials[password]" placeholder="password">
+          <input type="password" name="credentials[password_confirmation]" placeholder="confirm password">
+          <input type="submit" name="submit" value="Register">
+
+          <!-- TOGGLER -->
+          <p>Already have an account? <a class="sign-in-up-toggle" href='#'>Sign in here.</a></p>
+        </form>
+
+        <!-- SIGN IN FORM -->
+        <form id="sign-in">
+          <input type="text" name="credentials[email]" placeholder="email/username">
+          <input type="password" name="credentials[password]" placeholder="password">
+          <input type="submit" name="submit" value="Sign in">
+
+          <!-- TOGGLER -->
+          <p>Don't have an account? <a class="sign-in-up-toggle" href='#'>Sign up here.</a></p>
+        </form>
+
+        <!-- MESSAGE BOX- INITIALLY SET TO HIDDEN -->
+        <div id="landing-message-box" class="alert" style="display: none">
+
+        </div>
+      </section>
+
+      
+
+      <!-- Signed in User section -->
+      <!-- Section below is shown once a user has signed in -->
+      <section id="user-view" class="hidden container">
+
+        <!-- PASSWORD CHANGE AND SIGN OUT COLUMN -->
+        <div class="col-md-3 m-top">
+
+          <!-- PASSWORD COLLAPSE BUTTON -->
+            <a class="btn btn-default btn-block" data-toggle="collapse" href="#change-pass-collapse">Change password</a>
+
+            <!-- PASSWORD COLLAPSE PANEL -->
+              <div id="change-pass-panel" class="panel panel-default">
+                <div id="change-pass-collapse" class="panel-collapse collapse">
+                  <div class="panel-body">
+                    <form id="change-password">
+                      <fieldset class="form-group">
+                        <input type="password" name="passwords[old]" placeholder="old password" class="form-control">
+                        <input type="password" name="passwords[new]" placeholder="new password" class="form-control">
+                      </fieldset>
+                      <input type="submit" name="submit" value="update" class="btn btn-info btn-block">
+                    </form>
+                  </div>
+                </div>
+              </div>
+
+              <!-- SIGN OUT BUTTON -->
+              <form id="sign-out">
+                <input type="submit" name="submit" value="sign out" class="btn btn-default btn-block">
+              </form>
+        </div>
+        
+        <!-- MAIN LIST AREA -->
+        <div class="col-sm-9">
+          
+          <!-- WRAPPER FOR MESSAGES AND PLACES HEADING -->
+          <div class="row pad-top heading">
+
+            <!-- USER MESSAGES -->
+            <div class="col-md-8 col-md-push-4">
+              <div id="user-message-box" style="display: none"></div>
+            </div>
+
+            <!-- PLACES HEADING AND ADD PLACE MODAL TRIGGER -->
+            <h2 class="col-md-4 col-md-pull-8 ">Places <button type="button" class="btn btn-default" data-toggle="modal" data-target="#new-place-modal"> + </button></h2>
+          </div>
+          <!-- <button id="get-places">Get places</button> -->
+          
+          <!-- LIST HANDLEBARS TARGET -->
+          
+          <div id="content" class="row panel-group">
+          </div>
+
+        </div>
+      </section>
+
+      
+      <!-- Modal -->
+      <div class="modal fade" id="new-place-modal" tabindex="-1" role="dialog" aria-labelledby="new-place-label">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="new-place-label">New Place</h4>
+            </div>
+            <div class="modal-body">
+              <form id="new-place" class="form-horizontal">
+                <div class="form-group">
+                  <label class="col-xs-2 control-label" for="new-name">Name:</label>
+                  <div class="col-xs-10">
+                  <input id="new-name"  class="col-xs-10 form-control" type="text" name="place[name]" placeholder="name" required>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-xs-2 control-label" for="new-address">Address:</label>
+                  <div class="col-xs-10">
+                  <input id="new-address" class="col-xs-10 form-control" type="text" name="place[address]" placeholder="address" required>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-2 control-label" for="new-descrip">Description:</label>
+                  <div class="col-sm-10">
+                  <textarea id="new-descrip" name="place[description]" class="form-control" rows="3" placeholder="description"></textarea>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="col-sm-offset-2 col-sm-10">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button id="submit-place" type="submit" class="btn btn-primary">Save</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    </body>
+</html>
