@@ -80,8 +80,11 @@ https://projects.invisionapp.com/freehand/document/bo14QAmEi
 - Work on version 3 backend/frontend
 - work on stretch goals e.g. maps API.
 
+## Bugs to fix
+- Fix jitter that happens when a user message appears. Consider overlaying alerts.
+- Figure out how bootstrap does z-index.
+
 ## Future Improvements
 
-- Fix jitter that happens when a user message appears. Most likely solution would be modify the message size.
 - Add CRUD frontend functionality for second resource.
 - Change create place functionality to work with a map API.

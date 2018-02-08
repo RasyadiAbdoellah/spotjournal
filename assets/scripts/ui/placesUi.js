@@ -25,6 +25,7 @@ const createPlaceSuccess = function (data) {
   $('#new-descrip').val('')
 }
 
+/* --------------------- MESSAGE BOX MODIFIER FUNCTIONS ------------------------- */
 const updatePlaceSuccess = function () {
   modifyMessageBox('#user-message-box', 'Place modified!', 'alert alert-success')
 }

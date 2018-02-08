@@ -4,8 +4,6 @@ const showPlacesTemplate = require('./place-lists.handlebars')
 const placesApi = require('../api/placesApi')
 const placesUi = require('./placesUi')
 
-// -------------------UI FUNCTIONS BELOW -------------------------
-
 const modifyMessageBox = (divId, text, htmlClass) => {
   $(divId).text(text)
   $(divId).removeClass().addClass(htmlClass)
